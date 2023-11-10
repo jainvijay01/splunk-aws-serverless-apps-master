@@ -1,0 +1,37 @@
+{
+  "lambda": {
+    "FunctionName": "splunk-dynamodb-stream-processor",
+    "Handler": "index.handler",
+    "Runtime": "nodejs10.x",
+    "Description": "Stream AWS DynamoDB table activity from DynamoDB Stream to Splunk's HTTP event collector",
+    "Environment": {
+      "Variables": {
+        "SPLUNK_HEC_URL": "<enter value here>",
+        "SPLUNK_HEC_TOKEN": "<enter value here>"
+      }
+    },
+    "MemorySize": 512,
+    "Timeout": 10
+  },
+  "triggers": {
+    "dynamodb": [
+      {}
+    ]
+  },
+  "version": "0.8.1",
+  "license": "CC0-1.0",
+  "tags": [
+    "nodejs",
+    "splunk",
+    "dynamodb",
+    "dynamodb-stream"
+  ],
+  "authors": [
+    "Roy Arsan <roy@splunk.com> (https://www.splunk.com)",
+    "Glenn Block <gblock@splunk.com> (https://www.splunk.com)"
+  ],
+  "roleTemplates": [
+    "DynamoDB"
+  ]
+}
+
